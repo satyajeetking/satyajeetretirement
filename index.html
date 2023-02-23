@@ -1,9 +1,185 @@
-<!DOCTYPE html>
+
+<!DOCTYPE HTML>
 <html>
-    <head>
-        <title>Example</title>
-    </head>
-    <body>
-        <p>This is an example of a simple HTML page with one paragraph.</p>
-    </body>
+
+<head>
+    <title>Time left for Satyajeet's Retirement</title>
+    <link rel="icon" href="retirement.png">
+    <style>
+        body {
+            text-align: center;
+            font-family: "Open Sans";
+            font-weight: 100;
+        }
+
+        h1 {
+            color: #396;
+            font-weight: 100;
+            font-size: 40px;
+            margin: 40px 0px 20px;
+        }
+
+        #clockdiv {
+            font-family: "Open Sans";
+            color: #fff;
+            display: inline-block;
+            font-weight: 100;
+            text-align: center;
+
+        }
+
+        #clockdiv>div {
+            padding: 10px;
+            border-radius: 3px;
+            background: #00BF96;
+            display: inline-block;
+        }
+
+        #clockdiv div>span {
+            padding: 15px;
+            border-radius: 3px;
+            background: #00816A;
+            display: inline-block;
+            font-size: 40px;
+        }
+
+        smalltext {
+            padding-top: 15px;
+            font-size: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Time left for Satyajeet's Retirement</h1>
+    <div id="clockdiv">
+        <div>
+            <span class="years" id="year"></span>
+            <div class="smalltext">Years</div>
+        </div>
+        <div>
+            <span class="months" id="month"></span>
+            <div class="smalltext">Months</div>
+        </div>
+        <div>
+            <span class="days" id="day"></span>
+            <div class="smalltext">Days</div>
+        </div>
+        <div>
+            <span class="hours" id="hour"></span>
+            <div class="smalltext">Hours</div>
+        </div>
+        <div>
+            <span class="minutes" id="minute"></span>
+            <div class="smalltext">Minutes</div>
+        </div>
+        <div>
+            <span class="seconds" id="second"></span>
+            <div class="smalltext">Seconds</div>
+        </div>
+    </div>
+    <h1>Satyajeet joined IBM on 20<sup>th</sup> January 2014 and would retire on 30<sup>th</sup> April 2048</h1>
+
+    <script>
+
+        /*eslint-disable no-param-reassign */
+        var deadline = new Date("Apr 30, 2048 23:59:59").getTime();
+
+        var x = setInterval(function () {
+
+            var now = new Date().getTime();
+            var distance = deadline - now;
+            var years = Math.floor(distance / (1000 * 60 * 60 * 24 * 365));
+            var months = Math.floor((distance % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30.44));
+            var days = Math.floor((distance % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById("year").innerHTML = pad(years);
+            document.getElementById("month").innerHTML = pad(months);
+            document.getElementById("day").innerHTML = pad(days);
+            document.getElementById("hour").innerHTML = pad(hours);
+            document.getElementById("minute").innerHTML = pad(minutes);
+            document.getElementById("second").innerHTML = pad(seconds);
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "TIME UP";
+                document.getElementById("day").innerHTML = '0';
+                document.getElementById("hour").innerHTML = '0';
+                document.getElementById("minute").innerHTML = '0';
+                document.getElementById("second").innerHTML = '0';
+            }
+        }, 1000);
+
+        function pad(n) {
+            if (n < 10)
+                n = "0" + n;
+            return n;
+        }
+    </script>
+    <h1>Satyajeet's Length of Service</h1>
+    <div id="clockdiv">
+        <div>
+            <span class="joiningyears" id="joiningyear"></span>
+            <div class="smalltext">Years</div>
+        </div>
+        <div>
+            <span class="joiningmonths" id="joiningmonth"></span>
+            <div class="smalltext">Months</div>
+        </div>
+        <div>
+            <span class="days" id="joiningday"></span>
+            <div class="smalltext">Days</div>
+        </div>
+        <div>
+            <span class="hours" id="joininghour"></span>
+            <div class="smalltext">Hours</div>
+        </div>
+        <div>
+            <span class="minutes" id="joiningminute"></span>
+            <div class="smalltext">Minutes</div>
+        </div>
+        <div>
+            <span class="seconds" id="joiningsecond"></span>
+            <div class="smalltext">Seconds</div>
+        </div>
+    </div>
+    <script>
+
+        /*eslint-disable no-param-reassign */
+        var deadline2 = new Date("Jan 20, 2014 00:00:01").getTime();
+
+        var x2 = setInterval(function () {
+
+            var now2 = new Date().getTime();
+            var distance2 = now2 - deadline2;
+            var years2 = Math.floor(distance2 / (1000 * 60 * 60 * 24 * 365));
+            var months2 = Math.floor((distance2 % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30.44));
+            var days2 = Math.floor((distance2 % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24));
+            var hours2 = Math.floor((distance2 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes2 = Math.floor((distance2 % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds2 = Math.floor((distance2 % (1000 * 60)) / 1000);
+            document.getElementById("joiningyear").innerHTML = pad(years2);
+            document.getElementById("joiningmonth").innerHTML = pad(months2);
+            document.getElementById("joiningday").innerHTML = pad2(days2);
+            document.getElementById("joininghour").innerHTML = pad2(hours2);
+            document.getElementById("joiningminute").innerHTML = pad2(minutes2);
+            document.getElementById("joiningsecond").innerHTML = pad2(seconds2);
+            if (distance2 < 0) {
+                clearInterval(x2);
+                document.getElementById("joiningday").innerHTML = '0';
+                document.getElementById("joininghour").innerHTML = '0';
+                document.getElementById("joiningminute").innerHTML = '0';
+                document.getElementById("joiningsecond").innerHTML = '0';
+            }
+        }, 1000);
+
+        function pad2(n) {
+            if (n < 10)
+                n = "0" + n;
+            return n;
+        }
+    </script>
+</body>
+
 </html>
